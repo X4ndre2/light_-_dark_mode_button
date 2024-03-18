@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: green; */
+    background-color: white; /* Couleur de fond par défaut */
+    transition: background-color 0.15s linear; /* Ajoute une transition fluide */
+}
+
+body.active{
+    background-color: #5d88b3;
+}
+
+section.titre{
+    padding: 100px 0 70px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+}
+
+body section.titre h1.light{
+    color: black;
+}
+
+body section.titre h1.dark{
+    display: none;
+}
+
+body.active section.titre h1.light{
+    display: none;
+}
+
+body.active section.titre h1.dark{
+    display: block;
+    color: white;
+}
+
+section.bouton {
+    /* background-color: yellow; */
+    width: 100%;
+    height: 300px;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+div.box {
+    position: relative;
+    background-color: #9ad3ee;
+    width: 750px;
+    height: 300px;
+    border-radius: 5000px;
+    transition: 0.15s linear;
+    overflow: hidden;
+}
+
+
+div.box div.circle {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    background-color: #efd368;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    z-index: 100;
+    left: 20px;
+    top: 20px;
+    transition: 0.15s linear;
+}
+
+
+div.box.active{
+    background-color: #2f5673;
+}
+
+div.box.active .circle{
+    left: calc(100% - 280px);
+    background-color: #f2f2f2;
+}
+
+div.box.active .lune{
+    border-radius: 50%;
+    background-color: #e0dfd6;
+    opacity: 100;
+    transition: 0.15s linear;
+}
+
+.lune1{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    left: 20px;
+}
+
+.lune2{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 40px;
+    left: 70px;
+}
+
+.lune3{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 140px;
+    left: 175px;
+}
+
+div.box .lune{
+    opacity: 0;
+}
+
+
+div.box.active .circle .jour{
+    display: block;
+}
+
+div.box.active .circle .nuit{
+    display: none;
+}
+
+
+
+
+img.nuage{
+    position: absolute;
+    width: 75px;
+    transition: 0.15s linear;
+}
+
+img.nuage1{
+    left: 275px;
+    top: 30px;
+}
+
+img.nuage2{
+    left: 475px;
+    top: 12px;
+}
+
+
+body.active img.nuage{
+   left: 100%;
+}
+
+
+
+
+
+
+
+div.box .ville1 {
+    width: 200%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 5;
+}
+
+div.box .ville1 .jour {
+    width: 100%; /* Modification de la largeur pour 50% */
+    height: 100%;
+    background-color: #2f5673;
+    position: relative;
+    clip-path: polygon(100% 25%, 86% 25%, 86% 75%, 80% 75%, 80% 17%, 70% 17%, 67% 25%, 67% 58%, 63% 58%, 63% 34%, 53% 34%, 53% 26%, 47% 26%, 47% 66%, 43% 66%, 43% 42%, 37% 42%, 33% 50%, 0 50%, 0 100%, 100% 100%);
+    transition: 0.15s linear;
+    left: -50%;   
+}
+
+
+.fenetre_jour{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #4e7fa5;
+}
+
+
+div.box .ville1 .nuit {
+    width: 100%; /* Modification de la largeur pour 50% */
+    height: 100%;
+    background-color: #152b40;
+    position: relative;
+
+    clip-path: polygon(4% 73%, 2% 73%, 2% 66%, 4% 66%, 4% 62%, 2% 62%, 2% 56%, 4% 57%, 4% 54%, 2% 54%, 2% 48%, 15% 47%, 15% 65%, 18% 66%, 18% 28%, 31% 28%, 31% 60%, 35% 59%, 35% 54%, 44% 53%, 44% 83%, 46% 83%, 46% 31%, 58% 32%, 58% 40%, 87% 39%, 88% 32%, 100% 30%, 100% 100%, 0 100%);
+    transition: 0.15s linear;
+    left: -50%;
+}
+
+
+div.box.active .ville1 .jour,
+div.box.active .ville1 .nuit {
+    transform: translateX(100%);
+}
+
+
+
+
+
+
+
+
+
+div.box .ville2 {
+    width: 200%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 4;
+}
+
+div.box .ville2 .jour {
+    width: 100%; /* Modification de la largeur pour 50% */
+    height: 100%;
+    background-color: #517ea7;
+    position: relative;
+
+    clip-path: polygon(100% 100%, 100% 50%, 90% 50%, 90% 17%, 77% 17%, 77% 75%, 67% 75%, 67% 25%, 60% 25%, 60% 9%, 50% 9%, 50% 33%, 40% 33%, 40% 75%, 0 75%, 0 100%);
+    transition: 0.15s linear;
+    left: -50%;   
+}
+
+div.box .ville2 .nuit {
+    width: 100%; /* Modification de la largeur pour 50% */
+    height: 100%;
+    background-color: #517ea7;
+    position: relative;
+    clip-path: polygon(43% 48%, 43% 20%, 63% 20%, 63% 62%, 75% 61%, 75% 43%, 92% 43%, 92% 73%, 100% 73%, 100% 100%, 0 100%, 0 48%);
+    transition: 0.15s linear;
+    left: -50%;
+}
+
+
+div.box.active .ville2 .jour,
+div.box.active .ville2 .nuit {
+    transform: translateX(100%);
+}
+
+
